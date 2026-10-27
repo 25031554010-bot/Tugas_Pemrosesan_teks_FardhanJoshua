@@ -42,6 +42,14 @@ def preprocess_text(text):
 
 # 3. Terapkan ke DataFrame
 df['Deskripsi_Clean'] = df['Deskripsi'].apply(preprocess_text)
+# ---------------------------------------------------------
+# TAMBAHAN: Simpan hasil preprocessing ke file CSV baru
+# ---------------------------------------------------------
+output_file_path = (
+    r'Github_Pemteks\Tugas_Pemrosesan_teks\produk_oxylabs_clean.csv'
+)
+df.to_csv(output_file_path, index=False, encoding='utf-8')
+print(f'Data berhasil disimpan ke: {output_file_path}')
 
 # 4. WordCloud
 text_combined = ' '.join(df['Deskripsi_Clean'])
